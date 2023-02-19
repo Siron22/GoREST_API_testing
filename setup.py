@@ -8,6 +8,7 @@ setup(name='GoREST_API_testing',
                         'selenium',
                         'webdriver-manager',
                         'allure-pytest',
-                        'requests'
+                        'requests',
+                        'randomuser'
                         ]
       )

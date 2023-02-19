@@ -36,23 +36,10 @@ class User:
                 "status": self.status}
         return json
 
-    # def __str__(self):
-    #     return f"id: {self.id}\nname: {self.name}\nemail: {self.email}\ngender: {self.gender}\nstatus: {self.status}"
+    def __str__(self):
+        return f"id: {self.id}\nname: {self.name}\nemail: {self.email}\ngender: {self.gender}\nstatus: {self.status}"
 
 
 
 
-def user_with_random_data():
-    import random
-    from randomuser import RandomUser
-    import json
-    randomuser = RandomUser()
-    name = randomuser.get_full_name()
-    email = randomuser.get_email()
-    gender = randomuser.get_gender()
-    status = random.choice(['active', 'inactive'])
-    data = User(name, email, gender, status).get_json()
-    return json.dumps(data)
 
-a = user_with_random_data()
-print(a)

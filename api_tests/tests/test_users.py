@@ -12,15 +12,15 @@ def test_get_users_list(users_url, headers):
 def test_create_new_user(user_with_random_data, new_random_user):
     response = new_random_user.json()
     assert new_random_user.status_code == 201
-
-    for item in response.values():
-        if type(item) != int:
-            assert user_with_random_data.find(item)
+    with allure.step("Verify that all users field return in response"):
+        for item in response.values():
+            if type(item) != int:
+                assert user_with_random_data.find(item)
 
 @allure.story('New user created with manual input data')
-def test_create_new_user(new_manual_user, user_with_manual_data):
-    response = new_manual_user.json()
+def test_create_new_user(new_user_static_data, user_with_static_data):
+    response = new_user_static_data.json()
     print(response)
-    assert new_manual_user.status_code == 201
-    assert response["name"] == "Awiane Sirko"
+    assert new_user_static_data.status_code == 201
+    assert response["name"] == "Ayiane Sirko"
 
